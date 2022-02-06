@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Semsung</title>
+</head>
+
+<body>
+    <section id="page">
+        <header class="header"> <img src="img/samsung.png" height="100" width="260" alt="logo">
+            <div id="divBusca">
+                <input type="text" id="txtBusca" placeholder="Buscar...">
+            </div>
+            <img src="img/lupa-de-pesquisa.png" id="btnBusca" alt="Buscar" />
+            <img class="profile" src="img/profile-user.png" height="15" width="15" alt="profile">
+            <a class="Login" href="http://127.0.0.1:5500/Login.html">
+                <button class="BotaoCadastro">Minha Conta</button>
+            </a>
+            <img class="carrinho" src="img/carrinho-de-compras.png" height="15" width="15" alt="carrinho">
+            <a href="http://127.0.0.1:5500/Carrinho.html">
+                <button class="BotaoCarrinho">Carrinho </button>
+            </a>
+
+        </header>
+        <div id="slider">
+            <a href="#" class="control_next">></a>
+            <a href="#" class="control_prev">
+                <</a> <ul>
+                    <li>
+                        <a href="https://shop.samsung.com.br/galaxy-s21-ultra-5g/p" target="_blank">
+                            <img src="img/s21.png" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.samsung.com/br/smartphones/galaxy-s20/bts-edition/" target="_blank">
+                            <img class="merchant" src="img/merchant.png" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.samsung.com/pt/tablets/galaxy-tab-s7/buy/" target="_blank">
+                            <img class="s7" src="img/tab s7.jpg" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.samsung.com/br/pc/samsung-book/galaxy-book-s-i5-8gb-256gb-intel-np767xcm-k01br/?cid=br_pd_ppc_google-samsung_none-cold_cheil-chlnpc-001-009-525-a_galaxy-book-s_text_brand-responsivo-other-none-20210501-pageview_keywords"
+                            target="_blank">
+                            <img class="note" src="img/notebook.png" />
+                        </a>
+                    </li>
+                    </ul>
+        </div>
+        <img class="detalhes" src="img/detalhes.PNG" width="1224" height="157">
+        
+        <a href="https://shop.samsung.com/br/mobile/smartphone?order=OrderByPriceDESC">
+            <button class="smartphones">
+                <img src="img/Smartphones.PNG" alt="Smartphones">
+            </button>
+        </a>
+        <a href="https://shop.samsung.com/br/tv-e-audio/tv">
+            <button class="tvaudio">
+                <img src="img/tv e audio.PNG" alt="Tv e Audio">
+            </button>
+        </a>
+        <a href="https://shop.samsung.com/br/mobile/tablet?order=OrderByPriceDESC">
+            <button class="tablets">
+                <img src="img/tablets.PNG" alt="Tablets">
+            </button>
+        </a>
+        <a href="https://shop.samsung.com/br/mobile/Smartwatches">
+            <button class="relogio">
+                <img src="img/relogio.PNG" alt="Smartwatches">
+            </button>
+        </a>
+
+        <script>
+            $(function () {
+                $('#checkbox').change(function () {
+                    setInterval(function () {
+                        moveRight();
+                    }, 3000);
+                });
+
+                var slideCount = $('#slider ul li').length;
+                var slideWidth = $('#slider ul li').width();
+                var slideHeight = $('#slider ul li').height();
+                var sliderUlWidth = slideCount * slideWidth;
+
+                $('#slider').css({
+                    width: slideWidth,
+                    height: slideHeight
+                });
+
+                $('#slider ul').css({
+                    width: sliderUlWidth,
+                    marginLeft: -slideWidth
+                });
+
+                $('#slider ul li:last-child').prependTo('#slider ul');
+
+                function moveLeft() {
+                    $('#slider ul').animate({
+                        left: +slideWidth
+                    }, 200, function () {
+                        $('#slider ul li:last-child').prependTo('#slider ul');
+                        $('#slider ul').css('left', '');
+                    });
+                };
+
+                function moveRight() {
+                    $('#slider ul').animate({
+                        left: -slideWidth
+                    }, 200, function () {
+                        $('#slider ul li:first-child').appendTo('#slider ul');
+                        $('#slider ul').css('left', '');
+                    });
+                };
+
+                $('a.control_prev').click(function () {
+                    moveLeft();
+                });
+
+                $('a.control_next').click(function () {
+                    moveRight();
+                });
+            });
+        </script>
+        
+
+
+
+    </section>
+
+</body>
+
+</html>
